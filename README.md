@@ -12,9 +12,9 @@ The notebooks and data are separated into their own folders.
 
  I wanted to work on something that spanned across the following interests of mine:
 
--Urban transportation
--Geographic visualizations
--Timeseries forecasting
+- Urban transportation
+- Geographic visualizations
+- Timeseries forecasting
 
 Therefore, I decided to see if I could forecast hourly Uber demand across NYC neighborhoods. In addition to time-lagged features (such as previous week’s demand), I added information specific to each neighborhood to improve my predictions. As a final result, I obtained relatively accurate unique forecasts for all neighborhoods in NYC.
 
@@ -31,7 +31,22 @@ This was a lot of data and to process it quickly, I relied upon using PySpark on
 
 For baseline modeling, I created forecasts using only time-lagged features. I used the following three techniques, with the goal of progressing further with the most promising forecast.
 
--Linear Regression
--Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors (SARIMAX)
--Facebook Prophet
+- Linear Regression
+- Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors (SARIMAX)
+- Facebook Prophet
 Models were evaluated using root-mean squared error (RMSE). This way, the error metric would be easily understandable as “number of pickups” the forecast was off by.
+# Linear Regression:
+Features:
+
+- Day of the week
+- Weekend or not
+- Hour of day
+- Number of days since 01/01/2015
+The resulting forecast (plotted against test values from June) is shown below. The RMSE was 1,324.13. The forecast is certainly very good for such a simple model. However, it does not account for a lot of hour-by-hour variation and does not even try to address certain spikes. 
+![This is an image](https://user-images.githubusercontent.com/64773443/112430876-1f117700-8d15-11eb-8abd-1fc6f99b9b21.png)
+
+
+
+
+
+![This is an image]()
